@@ -50,6 +50,7 @@ namespace filesystemwatcher
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.Sizable;
+            MinimumSize = Size;
             defaultColor = comboBoxDirectory.ForeColor;
         }
 

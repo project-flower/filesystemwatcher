@@ -50,6 +50,18 @@
             this.comboBoxDirectory.TabIndex = 0;
             this.comboBoxDirectory.TextChanged += new System.EventHandler(this.comboBoxDirectory_TextChanged);
             // 
+            // checkBoxSubDirectory
+            // 
+            this.checkBoxSubDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxSubDirectory.AutoSize = true;
+            this.checkBoxSubDirectory.Location = new System.Drawing.Point(85, 38);
+            this.checkBoxSubDirectory.Name = "checkBoxSubDirectory";
+            this.checkBoxSubDirectory.Size = new System.Drawing.Size(118, 16);
+            this.checkBoxSubDirectory.TabIndex = 3;
+            this.checkBoxSubDirectory.Text = "Sub Directories(&S)";
+            this.checkBoxSubDirectory.UseVisualStyleBackColor = true;
+            this.checkBoxSubDirectory.CheckedChanged += new System.EventHandler(this.checkBoxSubDirectory_CheckedChanged);
+            // 
             // checkBoxEnabled
             // 
             this.checkBoxEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -76,28 +88,6 @@
             this.textBoxLogs.TabIndex = 2;
             this.textBoxLogs.WordWrap = false;
             // 
-            // fileSystemWatcher
-            // 
-            this.fileSystemWatcher.EnableRaisingEvents = true;
-            this.fileSystemWatcher.IncludeSubdirectories = true;
-            this.fileSystemWatcher.SynchronizingObject = this;
-            this.fileSystemWatcher.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher_Modified);
-            this.fileSystemWatcher.Created += new System.IO.FileSystemEventHandler(this.fileSystemWatcher_Modified);
-            this.fileSystemWatcher.Deleted += new System.IO.FileSystemEventHandler(this.fileSystemWatcher_Modified);
-            this.fileSystemWatcher.Renamed += new System.IO.RenamedEventHandler(this.fileSystemWatcher_Renamed);
-            // 
-            // checkBoxSubDirectory
-            // 
-            this.checkBoxSubDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxSubDirectory.AutoSize = true;
-            this.checkBoxSubDirectory.Location = new System.Drawing.Point(85, 38);
-            this.checkBoxSubDirectory.Name = "checkBoxSubDirectory";
-            this.checkBoxSubDirectory.Size = new System.Drawing.Size(118, 16);
-            this.checkBoxSubDirectory.TabIndex = 3;
-            this.checkBoxSubDirectory.Text = "Sub Directories(&S)";
-            this.checkBoxSubDirectory.UseVisualStyleBackColor = true;
-            this.checkBoxSubDirectory.CheckedChanged += new System.EventHandler(this.checkBoxSubDirectory_CheckedChanged);
-            // 
             // checkBoxDesc
             // 
             this.checkBoxDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -111,6 +101,16 @@
             this.checkBoxDesc.Text = "Desc(&D)";
             this.checkBoxDesc.UseVisualStyleBackColor = true;
             this.checkBoxDesc.CheckedChanged += new System.EventHandler(this.checkBoxDesc_CheckedChanged);
+            // 
+            // fileSystemWatcher
+            // 
+            this.fileSystemWatcher.EnableRaisingEvents = true;
+            this.fileSystemWatcher.IncludeSubdirectories = true;
+            this.fileSystemWatcher.SynchronizingObject = this;
+            this.fileSystemWatcher.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher_Modified);
+            this.fileSystemWatcher.Created += new System.IO.FileSystemEventHandler(this.fileSystemWatcher_Modified);
+            this.fileSystemWatcher.Deleted += new System.IO.FileSystemEventHandler(this.fileSystemWatcher_Modified);
+            this.fileSystemWatcher.Renamed += new System.IO.RenamedEventHandler(this.fileSystemWatcher_Renamed);
             // 
             // FormMain
             // 
@@ -134,11 +134,11 @@
         #endregion
 
         private System.Windows.Forms.ComboBox comboBoxDirectory;
+        private System.Windows.Forms.CheckBox checkBoxSubDirectory;
         private System.Windows.Forms.CheckBox checkBoxEnabled;
         private System.Windows.Forms.TextBox textBoxLogs;
-        private System.IO.FileSystemWatcher fileSystemWatcher;
         private System.Windows.Forms.CheckBox checkBoxDesc;
-        private System.Windows.Forms.CheckBox checkBoxSubDirectory;
+        private System.IO.FileSystemWatcher fileSystemWatcher;
     }
 }
 

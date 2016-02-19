@@ -41,7 +41,7 @@ namespace filesystemwatcher
             }
             else
             {
-                textBoxLogs.Text = textBoxLogs.Text + text + "\r\n";
+                textBoxLogs.Text = (textBoxLogs.Text + text + "\r\n");
                 textBoxLogs.Select((textBoxLogs.Text.Length - 1), 0);
             }
         }
@@ -66,10 +66,10 @@ namespace filesystemwatcher
 
             if (lines.Length > 1)
             {
-                Array.Copy(lines, 0, newLines, 1, lines.Length - 1);
+                Array.Copy(lines, 0, newLines, 1, (lines.Length - 1));
             }
 
-            Array.Copy(lines, lines.Length - 1, newLines, 0, 1);
+            Array.Copy(lines, (lines.Length - 1), newLines, 0, 1);
             Array.Reverse(newLines);
             textBoxLogs.Lines = newLines;
         }

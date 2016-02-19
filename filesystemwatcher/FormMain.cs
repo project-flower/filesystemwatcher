@@ -63,7 +63,12 @@ namespace filesystemwatcher
             }
 
             var newLines = new string[lines.Length];
-            Array.Copy(lines, 0, newLines, 1, lines.Length - 1);
+
+            if (lines.Length > 1)
+            {
+                Array.Copy(lines, 0, newLines, 1, lines.Length - 1);
+            }
+
             Array.Copy(lines, lines.Length - 1, newLines, 0, 1);
             Array.Reverse(newLines);
             textBoxLogs.Lines = newLines;

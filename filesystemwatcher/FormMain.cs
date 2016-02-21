@@ -58,12 +58,18 @@ namespace filesystemwatcher
 
                 if (desc)
                 {
-                    for (line = lines.Length - 1; line >= 0 && (newLength > maxLength); newLength -= (lines[line].Length + newLineCode.Length), --line) ;
+                    for (line = lines.Length - 1; line >= 0 && (newLength > maxLength); newLength -= (lines[line].Length + newLineCode.Length), --line)
+                    {
+                    }
+
                     newText = newText.Substring(0, newLength);
                 }
                 else
                 {
-                    for (line = 0; line < lines.Length && (newLength > maxLength); newLength -= (lines[line].Length + newLineCode.Length), ++line) ;
+                    for (line = 0; line < lines.Length && (newLength > maxLength); newLength -= (lines[line].Length + newLineCode.Length), ++line)
+                    {
+                    }
+
                     newText = newText.Substring(newText.Length - newLength);
                 }
             }

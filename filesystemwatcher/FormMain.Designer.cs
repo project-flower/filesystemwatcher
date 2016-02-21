@@ -31,9 +31,10 @@
             this.comboBoxDirectory = new System.Windows.Forms.ComboBox();
             this.checkBoxEnabled = new System.Windows.Forms.CheckBox();
             this.textBoxLogs = new System.Windows.Forms.TextBox();
-            this.fileSystemWatcher = new System.IO.FileSystemWatcher();
             this.checkBoxSubDirectory = new System.Windows.Forms.CheckBox();
             this.checkBoxDesc = new System.Windows.Forms.CheckBox();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.fileSystemWatcher = new System.IO.FileSystemWatcher();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +85,7 @@
             this.textBoxLogs.Name = "textBoxLogs";
             this.textBoxLogs.ReadOnly = true;
             this.textBoxLogs.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxLogs.Size = new System.Drawing.Size(276, 206);
+            this.textBoxLogs.Size = new System.Drawing.Size(276, 199);
             this.textBoxLogs.TabIndex = 2;
             this.textBoxLogs.WordWrap = false;
             // 
@@ -94,13 +95,24 @@
             this.checkBoxDesc.AutoSize = true;
             this.checkBoxDesc.Checked = true;
             this.checkBoxDesc.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDesc.Location = new System.Drawing.Point(222, 272);
+            this.checkBoxDesc.Location = new System.Drawing.Point(141, 269);
             this.checkBoxDesc.Name = "checkBoxDesc";
             this.checkBoxDesc.Size = new System.Drawing.Size(66, 16);
             this.checkBoxDesc.TabIndex = 4;
             this.checkBoxDesc.Text = "Desc(&D)";
             this.checkBoxDesc.UseVisualStyleBackColor = true;
             this.checkBoxDesc.CheckedChanged += new System.EventHandler(this.checkBoxDesc_CheckedChanged);
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClear.Location = new System.Drawing.Point(213, 265);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.TabIndex = 5;
+            this.buttonClear.Text = "Clear(&C)";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // fileSystemWatcher
             // 
@@ -117,6 +129,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 300);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.checkBoxDesc);
             this.Controls.Add(this.checkBoxSubDirectory);
             this.Controls.Add(this.textBoxLogs);
@@ -138,6 +151,7 @@
         private System.Windows.Forms.CheckBox checkBoxEnabled;
         private System.Windows.Forms.TextBox textBoxLogs;
         private System.Windows.Forms.CheckBox checkBoxDesc;
+        private System.Windows.Forms.Button buttonClear;
         private System.IO.FileSystemWatcher fileSystemWatcher;
     }
 }

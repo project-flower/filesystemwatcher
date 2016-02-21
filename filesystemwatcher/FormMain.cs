@@ -7,6 +7,7 @@ namespace filesystemwatcher
     public partial class FormMain : Form
     {
         readonly Color defaultColor;
+        const string newLineCode = "\r\n";
 
         void checkInput()
         {
@@ -34,16 +35,44 @@ namespace filesystemwatcher
 
         void putLog(string text)
         {
-            if (checkBoxDesc.Checked)
+            bool desc = checkBoxDesc.Checked;
+            string newText;
+            string newLine = text + newLineCode;
+
+            if (desc)
             {
-                textBoxLogs.Text = text + "\r\n" + textBoxLogs.Text;
-                textBoxLogs.Select(0, 0);
+                newText = newLine + textBoxLogs.Text;
             }
             else
             {
-                textBoxLogs.Text = (textBoxLogs.Text + text + "\r\n");
-                textBoxLogs.Select((textBoxLogs.Text.Length - 1), 0);
+                newText = textBoxLogs.Text + text + newLineCode;
             }
+
+            int newLength = newText.Length;
+            int maxLength = textBoxLogs.MaxLength;
+
+            if (newLength > maxLength)
+            {
+                int line;
+                string[] lines = textBoxLogs.Lines;
+
+                if (desc)
+                {
+                    for (line = lines.Length - 1; line >= 0 && (newLength > maxLength); newLength -= (lines[line].Length + newLineCode.Length), --line) ;
+                    newText = newText.Substring(0, newLength);
+                }
+                else
+                {
+                    for (line = 0; line < lines.Length && (newLength > maxLength); newLength -= (lines[line].Length + newLineCode.Length), ++line) ;
+                    newText = newText.Substring(newText.Length - newLength);
+                }
+            }
+
+            textBoxLogs.Text = newText;
+            int selectIndex = (desc ? 0 : (newText.Length - 1));
+            textBoxLogs.Select(selectIndex, 0);
+            //textBoxLogs.Focus();
+            textBoxLogs.ScrollToCaret();
         }
 
         public FormMain()
@@ -52,6 +81,11 @@ namespace filesystemwatcher
             FormBorderStyle = FormBorderStyle.Sizable;
             MinimumSize = Size;
             defaultColor = comboBoxDirectory.ForeColor;
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            textBoxLogs.Clear();
         }
 
         private void checkBoxDesc_CheckedChanged(object sender, EventArgs e)
